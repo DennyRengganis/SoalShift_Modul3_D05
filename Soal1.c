@@ -31,7 +31,7 @@ void pembeli(int* jmlh){
 			}
 		}
 		else if(pilih==2){
-			printf("Tuliskan nama senjata yang akan dibeli dan berapa jumlahnya ?");
+			printf("Tuliskan nama senjata yang akan dibeli dan berapa jumlahnya ?\n");
 			scanf("%s %d",nsenjata,&jumlah);
 			printf("\n");
 			if(strcmp(nsenjata,"MP4A1")==0){
@@ -54,7 +54,7 @@ void pembeli(int* jmlh){
                                 if(jmlh[4]>=jumlah) jmlh[4]-=jumlah;
                                 else printf("Jumlah stok tidak cukup\n");
                         }
-                        else if(strcmp(nsenjata,"MINES")==0){
+                        else if(strcmp(nsenjata,"MINE")==0){
                                 if(jmlh[5]>=jumlah) jmlh[5]-=jumlah;
                                 else printf("Jumlah stok tidak cukup\n");
                         }
@@ -66,7 +66,43 @@ void pembeli(int* jmlh){
 }
 
 void penjual(int* jmlh){
-	
+	int jenis,jumlah,pilih,i;
+        char nsenjata[100];
+        while(1){
+                menupenjual();
+                scanf("%d",&pilih);
+                if(pilih==1){
+                        for(i=0;i<6;i++){
+                                printf("%s %d\n",senjata[i],jmlh[i]);
+                        }
+                }
+                else if(pilih==2){
+                        printf("Tuliskan nama senjata yang akan ditambah stoknya dan berapa jumlahnya ?\n");
+                        scanf("%s %d",nsenjata,&jumlah);
+                        printf("\n");
+			if(strcmp(nsenjata,"MP4A1")==0){
+				jmlh[0]+=jumlah;
+			}
+			else if(strcmp(nsenjata,"PM2-V1")==0){
+				jmlh[1]+=jumlah;
+			}
+                        else if(strcmp(nsenjata,"SPR-3")==0){
+                                jmlh[2]+=jumlah;
+                        }
+                        else if(strcmp(nsenjata,"SS2-V5")==0){
+                                jmlh[3]+=jumlah;
+                        }
+                        else if(strcmp(nsenjata,"SPG1-V3")==0){
+                                jmlh[4]+=jumlah;
+                        }
+                        else if(strcmp(nsenjata,"MINE")==0){
+                                jmlh[5]+=jumlah;
+                        }
+		}
+		else{
+			printf("tolong masukkan input sesuai menu\n");
+		}
+	}
 }
 
 int main(){
